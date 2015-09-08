@@ -3,3 +3,12 @@ main: bl4ckscor3.plugin.allhalloween.core.AllHalloween
 version: 1.0.0
 author: [bl4ckscor3]
 description: A very spooky plugin for halloween!
+
+commands:
+    spook:
+        description: A very spooky command to spook the spook out of unspooky players.
+        usage: /<command> <playername>
+permissions:
+    halloween.spooky:
+        description: Gives access to the spooky command.
+        default: op
