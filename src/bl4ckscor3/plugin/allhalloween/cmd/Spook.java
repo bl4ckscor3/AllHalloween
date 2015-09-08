@@ -22,7 +22,7 @@ public class Spook
 		
 		if(args.length != 1)
 		{
-			sender.sendMessage(Utilities.getPrefix() + "Correct usage: /spooky <playername>");
+			sender.sendMessage(Utilities.getPrefix() + "Correct usage: /spook <playername>");
 			return;
 		}
 		
