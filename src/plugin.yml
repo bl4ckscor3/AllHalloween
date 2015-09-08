@@ -1,0 +1,5 @@
+name: AllHalloween
+main: bl4ckscor3.plugin.allhalloween.core.AllHalloween
+version: 1.0.0
+author: [bl4ckscor3]
+description: A very spooky plugin for halloween!
