@@ -30,14 +30,20 @@ public class PlayerJoinListener implements Listener
 		{
 			if(!pl.getConfig().getBoolean("shouldIgnoreHelmetSlot"))
 			{
+				if(p.getInventory().getHelmet().getType() == Material.JACK_O_LANTERN)
+				{
+					System.out.println(Utilities.getPrefix() + p.getName() + " already has a Jack o' Lantern on their head.");
+					return;
+				}
+				
 				if(p.getInventory().addItem(p.getInventory().getHelmet()).size() == 0) //if the helmet could successfully be moved to the main inventory
 					p.getInventory().setHelmet(new ItemStack(Material.JACK_O_LANTERN));
 				else
-					System.out.println(Utilities.getPrefix() + " Could not add Jack o' Lantern to " + p.getName() + (p.getName().endsWith("s") ? "'" : "'s") + " head, as they don't have any space in their inventory for their current helmet.");
+					System.out.println(Utilities.getPrefix() + "Could not add Jack o' Lantern to " + p.getName() + (p.getName().endsWith("s") ? "'" : "'s") + " head, as they don't have any space in their inventory for their current helmet.");
 			}
 			else
 			{
-				System.out.println(Utilities.getPrefix() + " WARNING: Config option \"shouldIgnoreHelmetSlot\" is set to true! Helmet of " + p.getName() + " got deleted! (" + p.getInventory().getHelmet().getType().name() + ")");
+				System.out.println(Utilities.getPrefix() + "WARNING: Config option \"shouldIgnoreHelmetSlot\" is set to true! Helmet of " + p.getName() + " got deleted! (" + p.getInventory().getHelmet().getType().name() + ")");
 				p.getInventory().setHelmet(new ItemStack(Material.JACK_O_LANTERN));
 			}
 		}
