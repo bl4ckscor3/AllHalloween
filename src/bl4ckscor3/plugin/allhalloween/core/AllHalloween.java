@@ -20,13 +20,13 @@ public class AllHalloween extends JavaPlugin
 		Config.setup(this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerMoveAndQuitListener(), this);
-		System.out.println(Utilities.getPrefix() + " " + getDescription().getVersion() + " has been enabled. Spooky.");
+		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been enabled. Spooky.");
 	}
 	
 	@Override
 	public void onDisable()
 	{
-		System.out.println(Utilities.getPrefix() + " " + getDescription().getVersion() + " has been disabled. Even more spooky.");
+		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been disabled. Even more spooky.");
 	}
 	
 	@Override
