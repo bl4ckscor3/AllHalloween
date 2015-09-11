@@ -5,6 +5,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bl4ckscor3.plugin.allhalloween.cmd.Spook;
+import bl4ckscor3.plugin.allhalloween.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.allhalloween.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.allhalloween.listener.PlayerMoveAndQuitListener;
 import bl4ckscor3.plugin.allhalloween.util.Utilities;
@@ -20,6 +21,7 @@ public class AllHalloween extends JavaPlugin
 		Config.setup(this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerMoveAndQuitListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been enabled. Spooky.");
 	}
 	
