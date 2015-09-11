@@ -1,10 +1,12 @@
 package bl4ckscor3.plugin.allhalloween.listener;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -44,8 +46,11 @@ public class PlayerInteractListener implements Listener
 
 					if(tot.get(event.getPlayer()).getClickTimes() == 3)
 					{
-						event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(Material.EMERALD));
-						System.out.println("opened door and dropped item");
+						int x = new Random().nextInt(9);
+						
+						event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(x == 4 || x == 7 ? Material.DIRT : Material.EMERALD));
+						event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1.0F, 1.0F);
+						tot.remove(event.getPlayer());
 					}
 				}
 				else

@@ -9,6 +9,6 @@ commands:
         description: A very spooky command to spook the spook out of unspooky players.
         usage: /<command> <playername>
 permissions:
-    halloween.spooky:
-        description: Gives access to the spooky command.
+    halloween.spook:
+        description: Gives access to spook players.
         default: op

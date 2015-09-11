@@ -9,15 +9,10 @@ public class Config
 	public static void setup(Plugin pl)
 	{
 		pl.reloadConfig();
-		pl.getConfig().options().header(getHeader());
 		pl.getConfig().addDefault("shouldIgnoreHelmetSlot", false);
+		pl.getConfig().addDefault("allowPlayersToPickupLantern", false);
 		pl.getConfig().options().copyDefaults(true);
 		pl.saveConfig();
 		System.out.println(Utilities.getPrefix() + "Config created/enabled! How spooky.");
-	}
-	
-	private static String getHeader()
-	{
-		return "";
 	}
 }

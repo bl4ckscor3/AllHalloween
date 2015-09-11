@@ -1,10 +1,9 @@
 package bl4ckscor3.plugin.allhalloween.core;
 
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bl4ckscor3.plugin.allhalloween.cmd.Spook;
+import bl4ckscor3.plugin.allhalloween.listener.InventoryClickListener;
 import bl4ckscor3.plugin.allhalloween.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.allhalloween.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.allhalloween.listener.PlayerMoveAndQuitListener;
@@ -19,9 +18,11 @@ public class AllHalloween extends JavaPlugin
 	{
 		instance = this;
 		Config.setup(this);
+		getCommand("spook").setExecutor(new Spook());
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerMoveAndQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+		getServer().getPluginManager().registerEvents(new InventoryClickListener(this), this);
 		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been enabled. Spooky.");
 	}
 	
@@ -29,15 +30,6 @@ public class AllHalloween extends JavaPlugin
 	public void onDisable()
 	{
 		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been disabled. Even more spooky.");
-	}
-	
-	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-	{
-		if(cmd.getName().equals("spook"))
-			Spook.execute(sender, cmd, args);
-		
-		return true;
 	}
 	
 	public static AllHalloween getInstance()
