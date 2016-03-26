@@ -37,7 +37,7 @@ public class Spook implements CommandExecutor
 		Player p = Bukkit.getPlayer(args[0]);
 
 		ParticleEffect.MOB_APPEARANCE.display(0.0F, 0.0F, 0.0F, 10.0F, 1, p.getLocation(), 255);
-		p.getLocation().getWorld().playSound(p.getLocation(), Sound.ENDERDRAGON_GROWL, 1.0F, 1.0F);
+		p.getLocation().getWorld().playSound(p.getLocation(), Sound.ENTITY_ENDERDRAGON_GROWL, 1.0F, 1.0F);
 		return true;
 	}
 }

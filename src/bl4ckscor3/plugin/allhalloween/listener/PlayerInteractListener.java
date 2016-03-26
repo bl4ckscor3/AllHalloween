@@ -49,7 +49,7 @@ public class PlayerInteractListener implements Listener
 						int x = new Random().nextInt(9);
 						
 						event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(x == 4 || x == 7 ? Material.DIRT : Material.EMERALD));
-						event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.CHICKEN_EGG_POP, 1.0F, 1.0F);
+						event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 1.0F, 1.0F);
 						tot.remove(event.getPlayer());
 					}
 				}
