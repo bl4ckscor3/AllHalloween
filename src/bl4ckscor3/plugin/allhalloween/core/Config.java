@@ -11,6 +11,7 @@ public class Config
 		pl.reloadConfig();
 		pl.getConfig().addDefault("shouldIgnoreHelmetSlot", false);
 		pl.getConfig().addDefault("allowPlayersToPickupLantern", false);
+		pl.getConfig().addDefault("dirtChance", 20);
 		pl.getConfig().options().copyDefaults(true);
 		pl.saveConfig();
 		System.out.println(Utilities.getPrefix() + "Config created/enabled! How spooky.");

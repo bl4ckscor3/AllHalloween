@@ -14,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.allhalloween.util.TrickOrTreatCheck;
 import bl4ckscor3.plugin.allhalloween.util.Utilities;
@@ -21,6 +22,14 @@ import bl4ckscor3.plugin.allhalloween.util.Utilities;
 public class PlayerInteractListener implements Listener
 {
 	private HashMap<Player,TrickOrTreatCheck> tot = new HashMap<Player,TrickOrTreatCheck>();
+	private Plugin pl;
+	private static int chance;
+	
+	public PlayerInteractListener(Plugin plugin, int c)
+	{
+		pl = plugin;
+		chance = c;
+	}
 
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event)
@@ -46,9 +55,9 @@ public class PlayerInteractListener implements Listener
 
 					if(tot.get(event.getPlayer()).getClickTimes() == 3)
 					{
-						int x = new Random().nextInt(9);
+						int x = new Random().nextInt(99);
 						
-						event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(x == 4 || x == 7 ? Material.DIRT : Material.EMERALD));
+						event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(), new ItemStack(x < chance ? Material.DIRT : Material.EMERALD));
 						event.getPlayer().playSound(event.getPlayer().getLocation(), Sound.ENTITY_CHICKEN_EGG, 1.0F, 1.0F);
 						tot.remove(event.getPlayer());
 					}

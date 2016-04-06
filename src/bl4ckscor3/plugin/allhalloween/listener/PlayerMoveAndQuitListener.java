@@ -18,6 +18,7 @@ public class PlayerMoveAndQuitListener implements Listener
 {
 	private static HashMap<Player,PumpkinCheck> targetBlocks = new HashMap<Player,PumpkinCheck>();
 
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onPlayerMove(PlayerMoveEvent event)
 	{

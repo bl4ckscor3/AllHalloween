@@ -21,7 +21,7 @@ public class AllHalloween extends JavaPlugin
 		getCommand("spook").setExecutor(new Spook());
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerMoveAndQuitListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerInteractListener(this, getChance()), this);
 		getServer().getPluginManager().registerEvents(new InventoryClickListener(this), this);
 		System.out.println(Utilities.getPrefix() + getDescription().getVersion() + " has been enabled. Spooky.");
 	}
@@ -35,5 +35,10 @@ public class AllHalloween extends JavaPlugin
 	public static AllHalloween getInstance()
 	{
 		return instance;
+	}
+	
+	private int getChance()
+	{
+		return getConfig().getInt("dirtChance") < 0 || getConfig().getInt("dirtChance") > 100 ? 20 : getConfig().getInt("dirtChance");
 	}
 }
